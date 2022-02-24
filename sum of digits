@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+/* Write a C program that inputs positive integers until a non-positive integer is entered, and sums up the digits 
+of each integer to reduce it to a new integer, repeating the process until only a single digit remains. E.g: if 
+user enters 8974; 8974 reduces to 28, which reduces to 10, which reduces to 1. */
+
+int main(int argc, char *argv[]) 
+{
+	int number,remain,sum=0;
+	printf("Enter a positive integer (non-positive to exit): ");
+	scanf("%d",&number);
+	
+	
+	while(number>10 || sum>10)
+	{
+		
+	   	while(number>0)
+	    {
+		   remain = number%10;
+		   sum += remain;
+		number/=10; 
+		
+     	}
+	
+	       printf("Sum of digits = %d\n",sum);
+    
+	
+       while(sum>0)
+	   {
+		    remain = sum%10;
+		    number+=remain;					
+		    sum/=10;	
+    	} 	
+
+		    printf("Sum of digits  = %d\n",number);	
+	}
+	
+
+	
+	return 0;
+}
